@@ -40,13 +40,11 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-
     <!-- audio -->
 
-    <audio style="display: none;" controls autoplay>
-        <source src="./audio/tet.mp3" type="audio/mpeg">
-      </audio>
-
+    <audio id="nhacTet" style="display: none" controls>
+      <source src="./audio/tet.mp3" type="audio/mpeg" />
+    </audio>
 
     <!-- partial:index.partial.html -->
     <!-- SVG Spritesheet -->
@@ -98,7 +96,7 @@
               <use href="#icon-pause" xlink:href="#icon-pause"></use>
             </svg>
           </div>
-          <div class="btn sound-btn">
+          <div class="btn sound-btn" onclick="toggleAudio()">
             <svg fill="white" width="24" height="24">
               <use href="#icon-sound-off" xlink:href="#icon-sound-off"></use>
             </svg>
@@ -185,5 +183,18 @@
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/329180/Stage%400.1.4.js"></script>
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/329180/MyMath.js"></script>
     <script src="./script.js"></script>
+    <!-- xử lý thêm bật tắt nhạc nền -->
+    <script>
+      var audio = document.getElementById("nhacTet");
+
+      // Hàm để bật hoặc ngừng nhạc
+      function toggleAudio() {
+        if (audio.paused) {
+          audio.play();
+        } else {
+          audio.pause();
+        }
+      }
+    </script>
   </body>
 </html>
